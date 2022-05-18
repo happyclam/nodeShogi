@@ -1,0 +1,36 @@
+<div class="data-form">
+  <form class="form-signin" action="<%=`/kifus/${kifu._id}/update?_method=PUT`%>" method="POST">
+    <h2 class="form-signin-heading">Edit kifus:</h2>
+    <!-- <label for="inputTitle">Title</label> -->
+    <!-- <input type="text" name="title" id="inputTitle" class="form-control" value="<%= kifu.title %>" placeholder="Title" required autofocus> -->
+    <label for="inputDescription">Description</label>
+    <input type="text" name="description" id="inputDescription" class="form-control" value="<%= kifu.description %>" placeholder="Description" autofocus>
+    <label for="inputFirstPlayer">First Player</label>
+    <select id="firstPlayer" name="firstPlayer" class="form-control" required>
+      <% users.forEach((user) => { %>
+      <% if (user.name == kifu.firstPlayer){ %>
+      <option value="<%= user.name %>,<%= user.id %>" selected ><%= user.name %></option>
+      <% } else { %>
+      <option value="<%= user.name %>"><%= user.name %></option>
+      <% }; %>
+      <% }); %>
+    </select>
+    <label for="inputSecondPlayer">Second Player</label>
+    <select id="secondPlayer" name="secondPlayer" class="form-control" required>
+      <% users.forEach((user) => { %>
+      <% if (user.name == kifu.secondPlayer){ %>
+      <option value="<%= user.name %>,<%= user.id %>" selected><%= user.name %></option>
+      <% } else { %>
+      <option value="<%= user.name %>"><%= user.name %></option>
+      <% }; %>
+      <% }); %>
+    </select>
+    <label for="inputKoma">Koma</label>
+    <input type="text" name="koma" id="inputKoma" class="form-control" value="<%= kifu.koma %>" placeholder="Koma">
+    <label for="inputKinds">Kinds</label>
+    <input type="text" name="kinds" id="inputKinds" class="form-control" value="<%= kifu.kinds %>" placeholder="Kinds">
+    <label for="inputHistories">Histories</label>
+    <input type="text" name="histories" id="inputHistories" class="form-control" value="<%= kifu.histories %>" placeholder="Histories">
+    <br /><button class="btn btn-lg btn-primary btn-block" type="submit">Save</button>
+  </form>
+</div>

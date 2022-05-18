@@ -1,0 +1,41 @@
+<h2>Kifus Table</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th>createdAt</th>
+      <th>Description</th>
+      <th>First Player</th>
+      <th>Second Player</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% kifus.forEach(kifu => { %>
+    <tr>
+      <td>
+        <a href="<%= `/kifus/${kifu._id}` %>">
+          <%= (kifu.createdAt.toDateString() + " " + kifu.createdAt.toTimeString()) %>
+        </a>
+      </td>
+      <td>
+        <%= kifu.description %>
+      </td>
+      <td>
+        <%= kifu.firstPlayer %>
+      </td>
+      <td>
+        <%= kifu.secondPlayer %>
+      </td>
+      <td>
+        <a href="<%=`kifus/${kifu._id}/edit`%>">
+          Edit
+        </a>
+      </td>
+      <td>
+        <a href="<%= `kifus/${kifu._id}/delete?_method=DELETE` %>" onclick="return confirm('Are you sure you want to delete this record?')">Delete</a>
+      </td>
+    </tr>
+    <% }); %>
+  </tbody>
+</table>

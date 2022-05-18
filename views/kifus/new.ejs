@@ -1,0 +1,28 @@
+<div class="data-form">
+  <form class="form-signin" action="/kifus/create" method="POST">
+    <h2 class="form-signin-heading">Create a new kifu:</h2>
+    <!-- <label for="inputTitle">Title</label> -->
+    <!-- <input type="text" name="title" id="inputTitle" class="form-control" placeholder="Title" required autofocus> -->
+    <label for="inputDescription">Description</label>
+    <input type="text" name="description" id="inputDescription" class="form-control" placeholder="Description" autofocus>
+    <label for="inputFirstPlayer">First Player</label>
+    <select id="firstPlayer" name="firstPlayer" class="form-control" required>
+      <option value=""> - - -  Select First Player - - -</option>
+      <% users.forEach((user) => { %>
+      <option value="<%= user.name %>,<%= user.id %>"><%= user.name %></option>
+      <% }); %>
+    </select>
+    <label for="inputSecondPlayer">Second Player</label>
+    <select id="secondPlayer" name="secondPlayer" class="form-control" required>
+      <option value=""> - - -  Select Second Player - - -</option>
+      <% users.forEach((user) => { %>
+      <option value="<%= user.name %>,<%= user.id %>"><%= user.name %></option>
+      <% }); %>
+    </select>
+    <label for="inputKinds">Kinds</label>
+    <input type="text" name="kinds" id="inputKinds" class="form-control" placeholder="Kinds">
+    <label for="inputHistories">Histories</label>
+    <input type="text" name="histories" id="inputHistories" class="form-control" placeholder="Histories">
+    <br/><button class="btn btn-lg btn-primary btn-block" type="submit">Create</button>
+  </form>
+</div>

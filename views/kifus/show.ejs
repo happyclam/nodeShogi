@@ -1,0 +1,60 @@
+<h1 class="center">Kifu Data for
+  <%= kifu.createdAt.toDateString() %>
+</h1>
+
+<table class="table">
+  <tr>
+    <th>createdAt</th>
+    <td>
+      <%= (kifu.createdAt.toDateString() + " " + kifu.createdAt.toTimeString()) %>
+    </td>
+  </tr>
+  <tr>
+    <th>Description</th>
+    <td>
+      <%= kifu.description %>
+    </td>
+  </tr>
+  <tr>
+    <th>First Player</th>
+    <td>
+      <%= kifu.firstPlayer %>
+    </td>
+  </tr>
+  <tr>
+    <th>Second Player</th>
+    <td>
+      <%= kifu.secondPlayer %>
+    </td>
+  </tr>
+  <tr>
+    <th>Koma</th>
+    <td>
+      <%= JSON.stringify(kifu.koma) %>
+    </td>
+  </tr>
+  <tr>
+    <th>Kinds</th>
+    <td>
+      <%= JSON.stringify(kifu.kinds) %>
+    </td>
+  </tr>
+  <tr>
+    <th>Histories</th>
+    <td>
+      <%= JSON.stringify(kifu.histories) %>
+    </td>
+  </tr>
+</table>
+
+<div>
+  <a class="button" href="/kifus">View all users</a>
+</div>
+<div>
+  <a class="button" href="<%=`/kifus/${kifu._id}/edit`%>">
+    Edit Kifu Details
+  </a>
+</div>
+<div>
+  <a class="button" href="<%= `/kifus/${kifu._id}/delete?_method=DELETE` %>" onclick="return confirm('Are you sure you want to delete this record?')">Delete</a>
+</div>
